@@ -89,7 +89,7 @@ def unlock_all_test_tasks():
     print("🧹 Разблокировка всех тестовых задач...")
     
     locked_tasks = get_locked_tasks()
-    test_workers = ['test-direct-client', 'test-fetch-worker', 'test-fixed-worker', 'debug-test-worker']
+    # test_workers = ['test-direct-client', 'test-fetch-worker', 'test-fixed-worker', 'debug-test-worker']
     
     unlocked_count = 0
     
@@ -97,14 +97,14 @@ def unlock_all_test_tasks():
         worker_id = task.get('workerId', '')
         task_id = task.get('id')
         
-        if any(test_worker in worker_id for test_worker in test_workers):
-            print(f"\n🎯 Найдена тестовая задача:")
-            print(f"   Task ID: {task_id}")
-            print(f"   Worker ID: {worker_id}")
-            print(f"   Topic: {task.get('topicName')}")
-            
-            if unlock_task(task_id):
-                unlocked_count += 1
+        # if any(test_worker in worker_id for test_worker in test_workers):
+        print(f"\n🎯 Найдена задача:")
+        print(f"   Task ID: {task_id}")
+        print(f"   Worker ID: {worker_id}")
+        print(f"   Topic: {task.get('topicName')}")
+        
+        if unlock_task(task_id):
+            unlocked_count += 1
     
     print(f"\n📊 Результат: разблокировано {unlocked_count} тестовых задач")
     return unlocked_count
