@@ -2,6 +2,12 @@
 """
 Диагностика Universal Camunda Worker
 """
+
+# Добавление родительского каталога в sys.path для импорта модулей проекта
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from config import camunda_config, routing_config
 
 def check_topics():

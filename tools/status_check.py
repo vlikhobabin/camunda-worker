@@ -7,6 +7,11 @@ import requests
 from typing import Dict, Any
 from loguru import logger
 
+# Добавление родительского каталога в sys.path для импорта модулей проекта
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from config import camunda_config, rabbitmq_config, routing_config
 from rabbitmq_client import RabbitMQClient
 

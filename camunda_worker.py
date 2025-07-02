@@ -162,7 +162,7 @@ class UniversalCamundaWorker:
                 "variables": task.get_variables(),
                 "processInstanceId": task.get_process_instance_id(),
                 "activityId": task.get_activity_id(),
-                "activityInstanceId": task.get_activity_instance_id(),
+                "activityInstanceId": task_data.get("activityInstanceId"),  # Берем из исходных данных
                 "workerId": task.get_worker_id(),
                 "retries": task_data.get("retries"),
                 "createTime": task_data.get("createTime"),

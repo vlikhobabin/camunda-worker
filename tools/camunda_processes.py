@@ -16,6 +16,11 @@ from datetime import datetime
 from typing import Dict, List, Optional
 import requests
 from requests.auth import HTTPBasicAuth
+
+# Добавление родительского каталога в sys.path для импорта модулей проекта
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from config import camunda_config
 
 # Отключение предупреждений SSL для самоподписанных сертификатов
